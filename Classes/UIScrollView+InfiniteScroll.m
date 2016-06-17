@@ -150,7 +150,7 @@ static const void *kPBInfiniteScrollStateKey = &kPBInfiniteScrollStateKey;
 #pragma mark - Public methods
 #pragma mark -
 
-- (void)addInfiniteScrollWithHandler:(void(^)(UIScrollView *scrollView))handler {
+- (void)am_addInfiniteScrollWithHandler:(void(^)(UIScrollView *scrollView))handler {
     _PBInfiniteScrollState *state = self.pb_infiniteScrollState;
     
     // Save handler block
@@ -169,7 +169,7 @@ static const void *kPBInfiniteScrollStateKey = &kPBInfiniteScrollStateKey;
     state.initialized = YES;
 }
 
-- (void)removeInfiniteScroll {
+- (void)am_removeInfiniteScroll {
     _PBInfiniteScrollState *state = self.pb_infiniteScrollState;
     
     // Ignore multiple calls to remove infinite scroll
@@ -191,11 +191,11 @@ static const void *kPBInfiniteScrollStateKey = &kPBInfiniteScrollStateKey;
     state.initialized = NO;
 }
 
-- (void)finishInfiniteScroll {
-    [self finishInfiniteScrollWithCompletion:nil];
+- (void)am_finishInfiniteScroll {
+    [self am_finishInfiniteScrollWithCompletion:nil];
 }
 
-- (void)finishInfiniteScrollWithCompletion:(nullable void(^)(UIScrollView *scrollView))handler {
+- (void)am_finishInfiniteScrollWithCompletion:(nullable void(^)(UIScrollView *scrollView))handler {
     if(self.pb_infiniteScrollState.loading) {
         [self pb_stopAnimatingInfiniteScrollWithCompletion:handler];
     }
@@ -241,7 +241,7 @@ static const void *kPBInfiniteScrollStateKey = &kPBInfiniteScrollStateKey;
     return self.pb_infiniteScrollState.indicatorMargin;
 }
 
-- (void)setShouldShowInfiniteScrollHandler:(BOOL(^)(UIScrollView *scrollView))handler{
+- (void)am_setShouldShowInfiniteScrollHandler:(BOOL(^)(UIScrollView *scrollView))handler{
     _PBInfiniteScrollState *state = self.pb_infiniteScrollState;
     
     // Save handler block

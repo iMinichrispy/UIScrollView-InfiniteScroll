@@ -56,10 +56,10 @@ static NSString *const kCellIdentifier = @"PhotoCell";
     self.collectionView.infiniteScrollIndicatorMargin = 40;
     
     // Add infinite scroll handler
-    [self.collectionView addInfiniteScrollWithHandler:^(UICollectionView *collectionView) {
+    [self.collectionView am_addInfiniteScrollWithHandler:^(UICollectionView *collectionView) {
         [weakSelf fetchData:^{
             // Finish infinite scroll animations
-            [collectionView finishInfiniteScroll];
+            [collectionView am_finishInfiniteScroll];
         }];
     }];
     

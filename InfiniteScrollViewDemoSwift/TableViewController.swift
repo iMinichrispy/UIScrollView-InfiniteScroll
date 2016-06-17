@@ -43,7 +43,7 @@ class TableViewController: UITableViewController {
         // Add infinite scroll handler
         tableView.addInfiniteScrollWithHandler { [weak self] (tableView) -> Void in
             self?.fetchData() {
-                tableView.finishInfiniteScroll()
+                tableView.am_finishInfiniteScroll()
             }
         }
         
